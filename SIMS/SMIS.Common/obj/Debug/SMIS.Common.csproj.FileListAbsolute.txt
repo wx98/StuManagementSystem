@@ -1,0 +1,4 @@
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\bin\Debug\SMIS.Common.dll
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\bin\Debug\SMIS.Common.pdb
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\obj\Debug\SMIS.Common.dll
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\obj\Debug\SMIS.Common.pdb

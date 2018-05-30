@@ -1,0 +1,12 @@
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SIMS.exe.config
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SIMS.exe
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SIMS.pdb
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Properties.Resources.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.csproj.GenerateResource.Cache
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.exe
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.pdb
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Form1.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Login.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SMIS.Common.dll
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SMIS.Common.pdb
