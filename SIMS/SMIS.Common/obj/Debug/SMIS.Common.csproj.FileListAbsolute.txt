@@ -2,3 +2,8 @@ D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\bin\Debug\
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\bin\Debug\SMIS.Common.pdb
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\obj\Debug\SMIS.Common.dll
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SMIS.Common\obj\Debug\SMIS.Common.pdb
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\bin\Debug\SMIS.Common.dll
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\bin\Debug\SMIS.Common.pdb
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.csprojResolveAssemblyReference.cache
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.dll
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.pdb

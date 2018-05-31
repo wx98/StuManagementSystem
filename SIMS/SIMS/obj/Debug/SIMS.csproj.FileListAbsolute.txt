@@ -10,3 +10,17 @@ D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Fo
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Login.resources
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SMIS.Common.dll
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\bin\Debug\SMIS.Common.pdb
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe.config
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Form1.resources
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Login.resources
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Properties.Resources.resources
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.csproj.GenerateResource.Cache
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.pdb
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SMIS.Common.dll
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SMIS.Common.pdb
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.exe
+C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.pdb
+C:\Users\Public\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe.config
+C:\Users\Public\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.exe
