@@ -24,3 +24,8 @@ C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\S
 C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.pdb
 C:\Users\Public\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe.config
 C:\Users\Public\StuManagementSystem-master\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.exe
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Admin.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Class.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.department.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.major.resources
+D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Student.resources
