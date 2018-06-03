@@ -42,7 +42,9 @@ namespace SIMS
         /// </summary>
         private void Update()
         {
+            //缺少代码
 
+            //缺少代码
         }
         /// <summary>
         /// 取消按钮事件
@@ -58,7 +60,9 @@ namespace SIMS
         /// </summary>
         private void button_OK_Click(object sender, EventArgs e)
         {
+            //缺少代码
 
+            //缺少代码
         }
     }
 }

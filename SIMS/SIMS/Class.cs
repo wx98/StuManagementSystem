@@ -25,7 +25,9 @@ namespace SIMS
         /// </summary>
         private void Class_Load(object sender, EventArgs e)
         {
+            //缺少代码
 
+            //缺少代码
         }
         /// <summary>
         /// 确定按钮事件
@@ -43,6 +45,7 @@ namespace SIMS
         {
             int MajorID = -1;
             //缺少代码
+
             //缺少代码
             return MajorID;
         }
@@ -55,6 +58,7 @@ namespace SIMS
         {
             String MajorID = null;
             //缺少代码
+
             //缺少代码
             return MajorID;
         }

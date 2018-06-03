@@ -29,3 +29,20 @@ D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Cl
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.department.resources
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.major.resources
 D:\Engineering being done\GitHub\StuManagementSystem\SIMS\SIMS\obj\Debug\SIMS.Student.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe.config
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Admin.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Class.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.department.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Form1.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Login.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.major.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Properties.Resources.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.Student.resources
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.exe
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SIMS.pdb
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SMIS.Common.dll
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\bin\Debug\SMIS.Common.pdb
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.exe
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SIMS\obj\Debug\SIMS.pdb

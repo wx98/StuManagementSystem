@@ -7,3 +7,8 @@ C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\S
 C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.csprojResolveAssemblyReference.cache
 C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.dll
 C:\Users\sy\Desktop\StuManagementSystem-master\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.pdb
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SMIS.Common\bin\Debug\SMIS.Common.dll
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SMIS.Common\bin\Debug\SMIS.Common.pdb
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.dll
+C:\Users\Administrator\Desktop\StuManagementSystem-master\SIMS\SMIS.Common\obj\Debug\SMIS.Common.pdb

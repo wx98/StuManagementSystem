@@ -17,8 +17,8 @@ namespace SIMS
         public Form1()
         {
             InitializeComponent();
-            Login login = new Login();  //实例化登录模块
-            login.ShowDialog();         //显示登录模块
+            //Login login = new Login();  //实例化登录模块
+            //login.ShowDialog();         //显示登录模块
         }
         ///<summary>
         ///窗口加载事件
@@ -28,13 +28,13 @@ namespace SIMS
             if (Login.login)
             {
                 //最大化界面
-                this.WindowState = FormWindowState.Maximized;
+               // this.WindowState = FormWindowState.Maximized;
                 //模拟单击浏览信息按钮从而显示学生信息
-                this.ToolStripMenuItem_Stu_browse_Click(sender, null);
+              //  this.ToolStripMenuItem_Stu_browse_Click(sender, null);
             }
             else
             {
-                this.Close();   //关闭系统
+               // this.Close();   //关闭系统
             }
         }
         /*--------------------------检查完成------------------------------------------------*/
@@ -101,7 +101,7 @@ namespace SIMS
         /// </summary>
         private void ToolStripMenuItem_major_Del_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确认删除？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxButtons.Button2) == DialogResult.OK)
+            if (MessageBox.Show("确认删除？", "删除信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Student.Delete(GetId());
             }
@@ -257,21 +257,33 @@ namespace SIMS
         /// </summary>
         private void Init_InfoPande_Label_TextBox()
         {
-            this.info_panel.Controls.Clear();
+            //清空详细信息面板
+            this.info_pandel.Controls.Clear();
+            //获得字段数量
             int ColCount = this.dataGridView1.ColumnCount;
+            //控制x轴坐标
             int x = 10;
+            //控制y轴坐标
             int y = 5;
+            //根据字段数量实例化Label数组
             Label[] labels = new Label[ColCount];
+            //根据字段数量实例化TextBox数组
             TextBox[] textbox = new TextBox[ColCount];
+            //根据字段名为Label赋值
             for (int i = 0; i < ColCount; i++)
             {
                 labels[i] = new Label();
+                //设置Label的大小为自适应
                 labels[i].AutoSize = true;
+                //设置Label的值为对应的字段名
                 labels[i].Text = this.dataGridView1.Columns[i].Name + "";
-                this.info_panel.Controls.Add(labels[i]);
+                //将Label添加到面板中
+                this.info_pandel.Controls.Add(labels[i]);
             }
+            //若是超过总字段数量的1/2将y轴坐标下移
             for (int i = 0; i < ColCount / 2; i++)
             {
+                //设置上方 Label 与下方Label右对齐
                 int diff = labels[i].Text.Length - labels[i + ColCount / 2].Text.Length;
                 if (diff > 0)
                 {
@@ -294,23 +306,30 @@ namespace SIMS
                     x = 10;
                     y = 30;
                 }
+
                 labels[i].Location = new Point(x, y);
                 x+=labels[i].Width;
+
                 textbox[i] = new TextBox();
+                //设置 TextBox的坐标
                 textbox[i].Location = new Point(x, y - 5);
+                //s设置 TextBox 为只读
                 textbox[i].ReadOnly = true;
+                //填充 TextBox 为对应值
                 textbox[i].Text = dataGridView1.SelectedRows[0].Cells[i].Value.ToString();
+                //添加TextBox 到信息面板中
                 this.info_pandel.Controls.Add(textbox[i]);
                 x += textbox[i].Width;
             }
             x += 20;
             y = 5;
+            //添加搜索的字段 Label
             Label col = new Label();
             col.AutoSize = true;
             col.Text = "字段：";
             this.info_pandel.Controls.Add(col);
             x += col.Width;
-
+            //添加字段名的ComboBox
             cb = new ComboBox();
             cb.Location = new Point(x, y - 5);
             cb.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -322,14 +341,14 @@ namespace SIMS
             this.info_pandel.Controls.Add(cb);
 
             x += cb.Width;
-
+            //添加条件Label
             Label condi = new Label();
             condi.Location = new Point(x, y);
             condi.AutoSize = true;
             condi.Text = "条件";
-            this.info_pandel.Controls.Add(cbcondi);
+            this.info_pandel.Controls.Add(condi);
             x += condi.Width;
-
+            //添加关系运算符的ComboBox
             condition = new ComboBox();
             condition.Location = new Point(x, y - 5);
             condition.Size = new Size(40, 20);
@@ -343,8 +362,28 @@ namespace SIMS
             this.info_pandel.Controls.Add(condition);
             y = 30;
             x = col.Location.X;
-            Label
-                val
+            //添加值Label
+            Label var = new Label();
+            var.Location = new Point(x, y);
+            var.AutoSize = true;
+            var.Text = "  值： ";
+            this.info_pandel.Controls.Add(var);
+            x += var.Width;
+
+            //添加值TextBox
+            value = new TextBox();
+            value.Location = new Point(x, y - 5);
+            this.info_pandel.Controls.Add(value);
+            x += value.Width;
+            //添加查询按钮Button
+            Button Search = new Button();
+            Search.Location = new Point(x + 30, y - 5);
+            Search.Text = "查询";
+            //为查询按钮添加单击事件
+            Search.Click += new EventHandler(Search_Click);
+            this.info_pandel.Controls.Add(Search);
+            //锁定与激活相应的删除与更新按钮
+            Init_menuStrip1();
 
 
 
@@ -352,7 +391,7 @@ namespace SIMS
         /// <summary>
         /// 查询按钮事件
         /// </summary>
-        private void Serch_Click(object sender, EventArgs e)
+        private void Search_Click(object sender, EventArgs e)
         {
             switch (Constants.NowMoudel)
             {
