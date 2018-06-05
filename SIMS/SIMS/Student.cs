@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIMS.Common;
+using System.Data.SqlClient;
 
 namespace SIMS
 {
@@ -84,7 +85,13 @@ namespace SIMS
         /// </summary>
         private void Showlable()
         {
-            
+            //label_UNo.Visible = true;
+            //label_Name.Visible = true;
+            //label_Birth.Visible = true;
+            //label_Class.Visible = true;
+            //label_ID.Visible = true;
+            //label_IYear.Visible = true;
+            //label_Origin.Visible = true;
         }
         /// <summary>
         /// '取消按钮事件'
@@ -107,24 +114,98 @@ namespace SIMS
             {
                 Sex = "男";
             }
+            int c = int.Parse(SQLHelp.ExecuteReArrList("select count(ID) from t_student where ID = " + textBox_ID.Text.Trim())[0].ToString());
+            if (c > 0)
+            {
+                MessageBox.Show("学号已存在！！");
+            }
+            else
+            {
+                SqlParameter[] paras = 
+                {
+                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
+                    new SqlParameter("@Sex",Sex),
+                    new SqlParameter("@Birth",Convert.ToInt32(textBox_Birth.Text.Trim())),
+                    new SqlParameter("@Origin",Convert.ToInt32(textBox_Origin.Text.Trim())),
+                    new SqlParameter("@Addr",Convert.ToInt32(textBox_Addr.Text.Trim())),
+                    new SqlParameter("@Tel",Convert.ToInt32(textBox_Tel.Text.Trim())),
+                    new SqlParameter("@IYera",Convert.ToInt32(textBox_IYear.Text.Trim())),
+                    new SqlParameter("@class",Convert.ToInt32(comboBox_Class.Text.Trim())),
+                    new SqlParameter("@Note",Convert.ToInt32(textBox_Note.Text.Trim())),
+                };
+                c = SQLHelp.ExecuteProc("proc_student_insert", paras);
+                if (c > 0)
+                {
+                    MessageBox.Show("添加信息成功！");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("添加信息失败！");
+                }
+            }
         }
         /// <summary>
         /// 更新学生信息
         /// </summary>
         public void Update()
         {
-            //缺少代码
-
-            //缺少代码
+            String Sex = null;
+            if (radioButton_Female.Checked == true)
+            {
+                Sex = "女";
+            }
+            else
+            {
+                Sex = "男";
+            }
+            SqlParameter[] paras = 
+                {
+                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
+                    new SqlParameter("@Sex",Sex),
+                    new SqlParameter("@Birth",Convert.ToInt32(textBox_Birth.Text.Trim())),
+                    new SqlParameter("@Origin",Convert.ToInt32(textBox_Origin.Text.Trim())),
+                    new SqlParameter("@Addr",Convert.ToInt32(textBox_Addr.Text.Trim())),
+                    new SqlParameter("@Tel",Convert.ToInt32(textBox_Tel.Text.Trim())),
+                    new SqlParameter("@IYera",Convert.ToInt32(textBox_IYear.Text.Trim())),
+                    new SqlParameter("@class",Convert.ToInt32(comboBox_Class.Text.Trim())),
+                    new SqlParameter("@Note",Convert.ToInt32(textBox_Note.Text.Trim())),
+                };
+            int c = SQLHelp.ExecuteProc("proc_class_update", paras);
+            if (c > 0)
+            {
+                MessageBox.Show("修改学生信息成功！");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("修改学生信息失败！");
+            }
         }
         /// <summary>
         /// 填充学生信息
         /// </summary>
         public void Init_Update()
         {
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select * from t_Student where UNo = " + ID;
+            ArrayList arr = SQLHelp.ExecuteReArrList(CommandText);
+            textBox_UNo.Text = arr[0].ToString();
+            textBox_UNo.ReadOnly = true;
+            textBox_Name.Text = arr[1].ToString();
+            if (arr[2].Equals("男"))
+                radioButton_Male.Checked = true;
+            else
+                radioButton_Female.Checked = true;
+            textBox_Birth.Text = arr[3].ToString();
+            textBox_ID.Text = arr[4].ToString();
+            textBox_Origin.Text = arr[5].ToString();
+            textBox_Addr.Text = arr[6].ToString();
+            textBox_Tel.Text = arr[7].ToString();
+            textBox_IYear.Text = arr[8].ToString();
+            comboBox_Class.Text = getClassName(Convert.ToInt32(arr[9].ToString()));
+            textBox_Note.Text = arr[10].ToString();
         }
         /// <summary>
         /// 通过班级名称获取班级编号
@@ -134,9 +215,8 @@ namespace SIMS
         public int getClassID(String ClassName)
         {
             int ClassID = -1;
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select ID from t_class where Name ='" + ClassName + "'";
+            ClassID = Convert.ToInt32(SQLHelp.ExecuteReArrList(CommandText)[0]);
             return ClassID;
         }
         /// <summary>
@@ -147,9 +227,8 @@ namespace SIMS
         private String getClassName(int ClassID)
         {
             String ClassName = null;
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select Name from t_class where ID =" + ClassID ;
+            ClassName = SQLHelp.ExecuteReArrList(CommandText)[0].ToString();
             return ClassName;
         }
         /// <summary>
@@ -175,7 +254,6 @@ namespace SIMS
             String CommadnText = "select * from t_student";
             DataTable dt = new DataTable();
             dt = SQLHelp.ExecuteReTable(CommadnText);
-            //缺少代码
             return dt;
         }
         /// <summary>
@@ -184,9 +262,11 @@ namespace SIMS
         /// <param name="UNo">学号</param>
         public static void Delete(String UNo)
         {
-            //缺少代码
-
-            //缺少代码  
+          SqlParameter[] paras = 
+          {
+              new SqlParameter("@UNo",Convert.ToInt32(UNo))
+          };
+          SQLHelp.ExecuteProc("proc_student_del",paras);
         }
     }
 }

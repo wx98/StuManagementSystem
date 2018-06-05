@@ -39,8 +39,8 @@
             this.textBox_IYear = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton_Male = new System.Windows.Forms.RadioButton();
+            this.radioButton_Female = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -146,27 +146,27 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "姓    名：";
             // 
-            // radioButton1
+            // radioButton_Male
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(105, 98);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 16);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "男";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton_Male.AutoSize = true;
+            this.radioButton_Male.Location = new System.Drawing.Point(105, 98);
+            this.radioButton_Male.Name = "radioButton_Male";
+            this.radioButton_Male.Size = new System.Drawing.Size(35, 16);
+            this.radioButton_Male.TabIndex = 11;
+            this.radioButton_Male.TabStop = true;
+            this.radioButton_Male.Text = "男";
+            this.radioButton_Male.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButton_Female
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(170, 99);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 16);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "女";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_Female.AutoSize = true;
+            this.radioButton_Female.Location = new System.Drawing.Point(170, 99);
+            this.radioButton_Female.Name = "radioButton_Female";
+            this.radioButton_Female.Size = new System.Drawing.Size(35, 16);
+            this.radioButton_Female.TabIndex = 12;
+            this.radioButton_Female.TabStop = true;
+            this.radioButton_Female.Text = "女";
+            this.radioButton_Female.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -308,8 +308,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButton_Female);
+            this.Controls.Add(this.radioButton_Male);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_IYear);
@@ -342,8 +342,8 @@
         private System.Windows.Forms.TextBox textBox_IYear;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton_Male;
+        private System.Windows.Forms.RadioButton radioButton_Female;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
