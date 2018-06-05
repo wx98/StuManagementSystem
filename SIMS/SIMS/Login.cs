@@ -34,7 +34,7 @@ namespace SIMS
         private void bt_Login_Click(object sender, EventArgs e)
         {
             ArrayList arr = new ArrayList();
-            String CommandText = "select  count(ID) from t_admin where UName = " + textBox_UserName.Text.Trim() + "";
+            String CommandText = "select  count(ID) from t_admin where UName = '" + textBox_UserName.Text.Trim() + "'";
             arr = SQLHelp.ExecuteReArrList(CommandText);
             if (arr[0].ToString().Equals("0"))
             {
@@ -42,7 +42,7 @@ namespace SIMS
             }
             else
             {
-                CommandText = "select * from t_admin where UName = "+textBox_UserName.Text.Trim()+"";
+                CommandText = "select * from t_admin where UName = '"+textBox_UserName.Text.Trim()+"'";
                 arr = SQLHelp.ExecuteReArrList(CommandText);
                 if (TextBox_Pass.Text.Trim().Equals(arr[2]))
                 {

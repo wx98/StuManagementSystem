@@ -11,7 +11,7 @@ namespace SIMS.Common
 {
     public class SQLHelp
     {
-        private static string ConStr = "initial catalog = SIMS; Server = (Local): user id = sa ; password = 123456;";
+        private static string ConStr = "initial catalog = SMIS; Server = stu32; user id=sa; password=123456;";
 
         /// <summary>
         /// 执行SQl命令并以Arraylist类型返回
