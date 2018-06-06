@@ -1,8 +1,10 @@
 ﻿using SIMS.Common;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,18 +26,55 @@ namespace SIMS
         /// </summary>
         private void major_Load(object sender, EventArgs e)
         {
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select Name from t_department";
+            ArrayList arr = new ArrayList();
+            arr = SQLHelp.ExecuteReArrList(CommandText);
+            foreach (Object a in arr)
+            {
+                comboBox_depart.Items.Add(a.ToString());
+            }
+            if (Oper_Flag.Equals(Constants.UPDATE))
+            {
+                Init_Update();
+            }   
         }
         /// <summary>
         /// 确定按钮事件
         /// </summary>
         private void button_OK_Click(object sender, EventArgs e)
         {
-            //缺少代码
-
-            //缺少代码
+            if (textBox_ID.Text.Trim() == ""
+                || textBox_Name.Text.Trim() == ""
+                || comboBox_depart.Text.Trim() == ""
+               )
+            {
+                //Showlable();
+                MessageBox.Show("信息不完整！！");
+            }
+            else
+            {
+                String CommandTex = "select ID from t_department where Name  = '" + comboBox_depart.Text.Trim() + "'";
+                ArrayList arr = SQLHelp.ExecuteReArrList(CommandTex);
+                if (arr.Count <= 0)
+                {
+                    if (MessageBox.Show("学院信息不存在是否添加此班级？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        this.Visible = false;
+                        department dep_insert = new department();
+                        dep_insert.Oper_Flag = Constants.INSERT;
+                        dep_insert.ShowDialog();
+                        this.Visible = true;
+                    }
+                    else
+                    {
+                        switch (Oper_Flag)
+                        {
+                            case Constants.INSERT: Insert(); break;
+                            case Constants.UPDATE: Update(); break;
+                        }
+                    }
+                }
+            }
         }
         /// <summary>
         /// 通过专业编号获取专业名称
@@ -45,9 +84,8 @@ namespace SIMS
         private int getDepartID(String DepartNaem)
         {
             int DepartID = -1;
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select ID from t_department where Name ='" + DepartNaem + "'";
+            DepartID = Convert.ToInt32(SQLHelp.ExecuteReArrList(CommandText)[0]);
             return DepartID;
         }
         /// <summary>
@@ -58,9 +96,8 @@ namespace SIMS
         private String getDepartName(int DepartId)
         {
             String DepartName = null;
-            //缺少代码
-
-            //缺少代码
+            String CommandText = "select Name from t_department where ID =" + DepartId;
+            DepartName = SQLHelp.ExecuteReArrList(CommandText)[0].ToString();
             return DepartName;
         }
         /// <summary>
@@ -69,9 +106,9 @@ namespace SIMS
         /// <returns>专业信息表</returns>
         public static DataTable ShowInfo()
         {
-            //缺少代码
+            String CommadnText = "select * from vi_major_info";
             DataTable dt = new DataTable();
-            //缺少代码
+            dt = SQLHelp.ExecuteReTable(CommadnText);
             return dt;
         }
         /// <summary>
@@ -83,9 +120,9 @@ namespace SIMS
         /// <returns>满足要求的专业信息表</returns>
         public static DataTable Search(String col, String condition, String value)
         {
-            //缺少代码
+            String CommadnText = "select * from t_department";
             DataTable dt = new DataTable();
-            //缺少代码
+            dt = SQLHelp.ExecuteReTable(CommadnText);
             return dt;
         }
         /// <summary>
@@ -94,45 +131,86 @@ namespace SIMS
         /// <param name="ID">专业编号</param>
         public static void Delete(String ID)
         {
-            //缺少代码 
-             
-            //缺少代码
+            SqlParameter[] paras = 
+            {
+                new SqlParameter("@UNo",Convert.ToInt32(ID))
+            };
+            SQLHelp.ExecuteProc("proc_student_del", paras);
         }
         /// <summary>
         /// 取消按钮事件
         /// </summary>
         private void button_Cancel_Click(object sender, EventArgs e)
         {
-            //缺少代码
-
-            //缺少代码
+            this.Close();
         }
         /// <summary>
         /// 填充专业信息
         /// </summary>
         private void Init_Update()
         {
-            //缺少代码 
-
-            //缺少代码
+            String CommandText = "select * from t_major where UNo = " + ID;
+            ArrayList arr = SQLHelp.ExecuteReArrList(CommandText);
+            textBox_ID.Text = arr[0].ToString();
+            textBox_ID.ReadOnly = true;
+            textBox_Name.Text = arr[1].ToString();
+            comboBox_depart.Text = getDepartName(Convert.ToInt32(arr[2].ToString()));
+            textBox_Note.Text = arr[3].ToString();
         }
         /// <summary>
         /// 更新专业信息
         /// </summary>
         private void Update()
         {
-            //缺少代码 
-
-            //缺少代码
+            int c = -1;
+            SqlParameter[] paras = 
+                {
+                    new SqlParameter("@ID",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
+                    new SqlParameter("@depart",getDepartID( comboBox_depart.Text.Trim())),
+                    new SqlParameter("@Note",textBox_Note.Text.Trim()),
+                };
+            c = SQLHelp.ExecuteProc("proc_major_update", paras);
+            if (c > 0)
+            {
+                MessageBox.Show("修改专业成功！");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("修改专业失败！");
+            }
         }
         /// <summary>
         /// 添加专业信息
         /// </summary>
         private void Insert()
         {
-            //缺少代码 
-
-            //缺少代码
+            int c = int.Parse(SQLHelp.ExecuteReArrList("select count(ID) from t_major where ID = " + textBox_ID.Text.Trim())[0].ToString());
+            if (c > 0)
+            {
+                MessageBox.Show("专业已存在！！");
+            }
+            else
+            {
+                SqlParameter[] paras = 
+                {
+                     new SqlParameter("@ID",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
+                    new SqlParameter("@depart",getDepartID( comboBox_depart.Text.Trim())),
+                    new SqlParameter("@Note",textBox_Note.Text.Trim()),
+                };
+                c = SQLHelp.ExecuteProc("proc_major_insert", paras);
+                if (c > 0)
+                {
+                    MessageBox.Show("添加专业成功！");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("添加专业失败！");
+                }
+            }
         }
     }
 }

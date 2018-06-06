@@ -322,6 +322,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Student";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "学生信息";
             this.Load += new System.EventHandler(this.Student_Load);
             this.ResumeLayout(false);

@@ -152,6 +152,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "major";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "major";
             this.Load += new System.EventHandler(this.major_Load);
             this.ResumeLayout(false);

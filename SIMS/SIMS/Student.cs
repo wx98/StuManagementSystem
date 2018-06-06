@@ -237,7 +237,7 @@ namespace SIMS
         /// <returns>学生信息表</returns>
         public static DataTable ShowInfo()
         {
-            String CommadnText = "select * from t_student";
+            String CommadnText = "select * from vi_Stu_info";
             DataTable dt = new DataTable();
             dt = SQLHelp.ExecuteReTable(CommadnText);
             return dt;

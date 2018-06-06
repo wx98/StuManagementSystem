@@ -104,6 +104,17 @@ namespace SIMS
             return MajorName;
         }
         /// <summary>
+        /// 获取班级信息表
+        /// </summary>
+        /// <returns>学生信息表</returns>
+        public static DataTable ShowInfo()
+        {
+            String CommadnText = "select * from vi_class_info";
+            DataTable dt = new DataTable();
+            dt = SQLHelp.ExecuteReTable(CommadnText);
+            return dt;
+        }
+        /// <summary>
         /// 搜索班级信息
         /// </summary>
         /// <param name="col">字段名</param>

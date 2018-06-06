@@ -42,7 +42,7 @@ namespace SIMS
             }
             else
             {
-                int c = int.Parse(SQLHelp.ExecuteReArrList("select count(UName) from t_admin where UName = " + textBox_ID.Text.Trim() + "'")[0].ToString());
+                int c = int.Parse(SQLHelp.ExecuteReArrList("select count(UName) from t_admin where UName = '" + textBox_ID.Text.Trim() + "'")[0].ToString());
                 if (c > 0)
                 {
                     MessageBox.Show("管理员账号已存在！！");
@@ -63,8 +63,8 @@ namespace SIMS
                         {
                             SqlParameter[] paras = 
                             {
-                                new SqlParameter("@UName",Convert.ToInt32(textBox_ID.Text.Trim())),
-                                new SqlParameter("@Pass",Convert.ToInt32(maskedTextBox_Pass.Text.Trim()))
+                                new SqlParameter("@UName",textBox_ID.Text.Trim()),
+                                new SqlParameter("@Pass",maskedTextBox_Pass.Text.Trim())
                             };
                             c = SQLHelp.ExecuteProc("proc_admin_insert", paras);
                             if (c > 0)
@@ -101,18 +101,18 @@ namespace SIMS
                 {
                     SqlParameter[] paras = 
                             {
-                                new SqlParameter("@UName",Convert.ToInt32(textBox_ID.Text.Trim())),
-                                new SqlParameter("@Pass",Convert.ToInt32(maskedTextBox_Pass.Text.Trim()))
+                                new SqlParameter("@UName",textBox_ID.Text.Trim()),
+                                new SqlParameter("@Pass",maskedTextBox_Pass.Text.Trim())
                             };
                     int c = SQLHelp.ExecuteProc("proc_admin_update", paras);
                     if (c > 0)
                     {
-                        MessageBox.Show("添加信息成功！");
+                        MessageBox.Show("更改信息成功！");
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("添加信息失败！");
+                        MessageBox.Show("更改信息失败！");
                     }
                 }
             }
