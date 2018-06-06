@@ -243,7 +243,7 @@
             // 
             this.ToolStripMenuItem_depart_Add.Name = "ToolStripMenuItem_depart_Add";
             this.ToolStripMenuItem_depart_Add.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_depart_Add.Text = "添加院系信息";
+            this.ToolStripMenuItem_depart_Add.Text = "添加院系信息√";
             this.ToolStripMenuItem_depart_Add.Click += new System.EventHandler(this.ToolStripMenuItem_depart_Add_Click);
             // 
             // ToolStripMenuItem_depart_Del
@@ -257,7 +257,7 @@
             // 
             this.ToolStripMenuItem_depart_Update.Name = "ToolStripMenuItem_depart_Update";
             this.ToolStripMenuItem_depart_Update.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_depart_Update.Text = "更新院系信息";
+            this.ToolStripMenuItem_depart_Update.Text = "更新院系信息√";
             this.ToolStripMenuItem_depart_Update.Click += new System.EventHandler(this.ToolStripMenuItem_depart_Update_Click);
             // 
             // ToolStripMenuItem_depart_browse
@@ -305,11 +305,15 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dataGridView1.Location = new System.Drawing.Point(0, 104);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(898, 361);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // info_pandel

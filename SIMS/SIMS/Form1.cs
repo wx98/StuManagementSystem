@@ -129,7 +129,7 @@ namespace SIMS
             DataTable dt = major.ShowInfo();
             this.dataGridView1.DataSource = dt;
             //重新布局详细信息面板
-           // this.Init_InfoPande_Label_TextBox();
+            //this.Init_InfoPande_Label_TextBox();
         }
         /*--------------------------检查完成------------------------------------------------*/
         ///<summary>
@@ -179,7 +179,7 @@ namespace SIMS
             DataTable dt = department.ShowInfo();
             this.dataGridView1.DataSource = dt;
             //重新布局详细信息面板
-            //this.Init_InfoPande_Label_TextBox();
+           // this.Init_InfoPande_Label_TextBox();
         }
         /*--------------------------检查完成------------------------------------------------*/
         /// <summary>
@@ -326,7 +326,7 @@ namespace SIMS
             //添加搜索的字段 Label
             Label col = new Label();
             col.AutoSize = true;
-            col.Text = "字段：";
+            col.Text = "";
             this.info_pandel.Controls.Add(col);
             x += col.Width;
             //添加字段名的ComboBox
