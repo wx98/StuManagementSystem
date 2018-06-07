@@ -69,13 +69,13 @@ namespace SIMS
                         class_insert.ShowDialog();
                         this.Visible = true;
                     }
-                    else
+                }
+                else
+                {
+                    switch (Oper_Flag)
                     {
-                        switch (Oper_Flag)
-                        {
-                            case Constants.INSERT: Insert(); break;
-                            case Constants.UPDATE: Update(); break;
-                        }
+                        case Constants.INSERT: Insert(); break;
+                        case Constants.UPDATE: Update(); break;
                     }
                 }
             }
@@ -114,7 +114,7 @@ namespace SIMS
             {
                 Sex = "男";
             }
-            int c = int.Parse(SQLHelp.ExecuteReArrList("select count(ID) from t_student where ID = " + textBox_ID.Text.Trim())[0].ToString());
+            int c = int.Parse(SQLHelp.ExecuteReArrList("select count(ID) from t_student where ID = " + textBox_UNo.Text.Trim())[0].ToString());
             if (c > 0)
             {
                 MessageBox.Show("学号已存在！！");
@@ -123,16 +123,17 @@ namespace SIMS
             {
                 SqlParameter[] paras = 
                 {
-                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
-                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
+                    new SqlParameter("@UNo",Convert.ToInt32(textBox_UNo.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
                     new SqlParameter("@Sex",Sex),
-                    new SqlParameter("@Birth",Convert.ToInt32(textBox_Birth.Text.Trim())),
-                    new SqlParameter("@Origin",Convert.ToInt32(textBox_Origin.Text.Trim())),
-                    new SqlParameter("@Addr",Convert.ToInt32(textBox_Addr.Text.Trim())),
-                    new SqlParameter("@Tel",Convert.ToInt32(textBox_Tel.Text.Trim())),
-                    new SqlParameter("@IYera",Convert.ToInt32(textBox_IYear.Text.Trim())),
-                    new SqlParameter("@class",Convert.ToInt32(comboBox_Class.Text.Trim())),
-                    new SqlParameter("@Note",Convert.ToInt32(textBox_Note.Text.Trim())),
+                    new SqlParameter("@Birth",textBox_Birth.Text.Trim()),
+                    new SqlParameter("@ID",textBox_ID.Text.Trim()),
+                    new SqlParameter("@Origin",textBox_Origin.Text.Trim()),
+                    new SqlParameter("@Addr",textBox_Addr.Text.Trim()),
+                    new SqlParameter("@Tel",textBox_Tel.Text.Trim()),
+                    new SqlParameter("@IYear",textBox_IYear.Text.Trim()),
+                    new SqlParameter("@class",getClassID(comboBox_Class.Text.Trim())),
+                    new SqlParameter("@Note",textBox_Note.Text.Trim())
                 };
                 c = SQLHelp.ExecuteProc("proc_student_insert", paras);
                 if (c > 0)
@@ -162,18 +163,19 @@ namespace SIMS
             }
             SqlParameter[] paras = 
                 {
-                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
-                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
+                    new SqlParameter("@UNo",Convert.ToInt32(textBox_UNo.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
                     new SqlParameter("@Sex",Sex),
-                    new SqlParameter("@Birth",Convert.ToInt32(textBox_Birth.Text.Trim())),
-                    new SqlParameter("@Origin",Convert.ToInt32(textBox_Origin.Text.Trim())),
-                    new SqlParameter("@Addr",Convert.ToInt32(textBox_Addr.Text.Trim())),
-                    new SqlParameter("@Tel",Convert.ToInt32(textBox_Tel.Text.Trim())),
-                    new SqlParameter("@IYera",Convert.ToInt32(textBox_IYear.Text.Trim())),
-                    new SqlParameter("@class",Convert.ToInt32(comboBox_Class.Text.Trim())),
-                    new SqlParameter("@Note",Convert.ToInt32(textBox_Note.Text.Trim())),
+                    new SqlParameter("@Birth",textBox_Birth.Text.Trim()),
+                    new SqlParameter("@ID",textBox_ID.Text.Trim()),
+                    new SqlParameter("@Origin",textBox_Origin.Text.Trim()),
+                    new SqlParameter("@Addr",textBox_Addr.Text.Trim()),
+                    new SqlParameter("@Tel",textBox_Tel.Text.Trim()),
+                    new SqlParameter("@IYear",textBox_IYear.Text.Trim()),
+                    new SqlParameter("@class",getClassID(comboBox_Class.Text.Trim())),
+                    new SqlParameter("@Note",textBox_Note.Text.Trim())
                 };
-            int c = SQLHelp.ExecuteProc("proc_class_update", paras);
+            int c = SQLHelp.ExecuteProc("proc_student_update", paras);
             if (c > 0)
             {
                 MessageBox.Show("修改学生信息成功！");

@@ -66,13 +66,14 @@ namespace SIMS
                         major_insert.ShowDialog();
                         this.Visible = true;
                     }
-                    else
+                    
+                }
+                else
+                {
+                    switch (Oper_Flag)
                     {
-                        switch (Oper_Flag)
-                        {
-                            case Constants.INSERT: Insert(); break;
-                            case Constants.UPDATE: Update(); break;
-                        }
+                        case Constants.INSERT: Insert(); break;
+                        case Constants.UPDATE: Update(); break;
                     }
                 }
             }
@@ -174,10 +175,10 @@ namespace SIMS
             {
                 SqlParameter[] paras = 
                 {
-                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
-                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
-                    new SqlParameter("@major",Convert.ToInt32(comboBox_Major.Text.Trim())),
-                    new SqlParameter("@Couns",Convert.ToInt32(textBox_Couns.Text.Trim())),
+                    new SqlParameter("@ID",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
+                    new SqlParameter("@major",getMajorID(comboBox_Major.Text.Trim())),
+                    new SqlParameter("@Couns",Convert.ToInt32(textBox_Couns.Text.Trim()))
                 };
                 c = SQLHelp.ExecuteProc("proc_class_insert", paras);
                 if (c > 0)
@@ -199,10 +200,10 @@ namespace SIMS
             int c = -1;
             SqlParameter[] paras = 
                 {
-                    new SqlParameter("@UNo",Convert.ToInt32(textBox_ID.Text.Trim())),
-                    new SqlParameter("@Name",Convert.ToInt32(textBox_Name.Text.Trim())),
-                    new SqlParameter("@major",Convert.ToInt32(comboBox_Major.Text.Trim())),
-                    new SqlParameter("@Couns",Convert.ToInt32(textBox_Couns.Text.Trim())),
+                    new SqlParameter("@ID",Convert.ToInt32(textBox_ID.Text.Trim())),
+                    new SqlParameter("@Name",textBox_Name.Text.Trim()),
+                    new SqlParameter("@major",getMajorID(comboBox_Major.Text.Trim())),
+                    new SqlParameter("@Couns",textBox_Couns.Text.Trim())
                 };
             c = SQLHelp.ExecuteProc("proc_class_update", paras);
             if (c > 0)

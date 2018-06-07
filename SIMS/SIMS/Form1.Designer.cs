@@ -117,21 +117,21 @@
             // 
             this.ToolStripMenuItem_Stu_Add.Name = "ToolStripMenuItem_Stu_Add";
             this.ToolStripMenuItem_Stu_Add.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_Stu_Add.Text = "添加学生信息";
+            this.ToolStripMenuItem_Stu_Add.Text = "添加学生信息√";
             this.ToolStripMenuItem_Stu_Add.Click += new System.EventHandler(this.ToolStripMenuItem_Stu_Add_Click);
             // 
             // ToolStripMenuItem_Stu_Del
             // 
             this.ToolStripMenuItem_Stu_Del.Name = "ToolStripMenuItem_Stu_Del";
             this.ToolStripMenuItem_Stu_Del.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_Stu_Del.Text = "删除学生信息";
+            this.ToolStripMenuItem_Stu_Del.Text = "删除学生信息√";
             this.ToolStripMenuItem_Stu_Del.Click += new System.EventHandler(this.ToolStripMenuItem_Stu_Del_Click);
             // 
             // ToolStripMenuItem_Stu_Update
             // 
             this.ToolStripMenuItem_Stu_Update.Name = "ToolStripMenuItem_Stu_Update";
             this.ToolStripMenuItem_Stu_Update.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_Stu_Update.Text = "更新学生信息";
+            this.ToolStripMenuItem_Stu_Update.Text = "更新学生信息√";
             this.ToolStripMenuItem_Stu_Update.Click += new System.EventHandler(this.ToolStripMenuItem_Stu_Update_Click);
             // 
             // ToolStripMenuItem_Stu_browse
@@ -159,21 +159,21 @@
             // 
             this.ToolStripMenuItem_class_Add.Name = "ToolStripMenuItem_class_Add";
             this.ToolStripMenuItem_class_Add.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_class_Add.Text = "添加班级信息";
+            this.ToolStripMenuItem_class_Add.Text = "添加班级信息√";
             this.ToolStripMenuItem_class_Add.Click += new System.EventHandler(this.ToolStripMenuItem_class_Add_Click);
             // 
             // ToolStripMenuItem_class_Del
             // 
             this.ToolStripMenuItem_class_Del.Name = "ToolStripMenuItem_class_Del";
             this.ToolStripMenuItem_class_Del.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_class_Del.Text = "删除班级信息";
+            this.ToolStripMenuItem_class_Del.Text = "删除班级信息√";
             this.ToolStripMenuItem_class_Del.Click += new System.EventHandler(this.ToolStripMenuItem_class_Del_Click);
             // 
             // ToolStripMenuItem_class_Update
             // 
             this.ToolStripMenuItem_class_Update.Name = "ToolStripMenuItem_class_Update";
             this.ToolStripMenuItem_class_Update.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_class_Update.Text = "更改班级信息";
+            this.ToolStripMenuItem_class_Update.Text = "更改班级信息√";
             this.ToolStripMenuItem_class_Update.Click += new System.EventHandler(this.ToolStripMenuItem_class_Update_Click);
             // 
             // ToolStripMenuItem_class_browse
@@ -201,14 +201,14 @@
             // 
             this.ToolStripMenuItem_major_Add.Name = "ToolStripMenuItem_major_Add";
             this.ToolStripMenuItem_major_Add.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_major_Add.Text = "添加专业信息";
+            this.ToolStripMenuItem_major_Add.Text = "添加专业信息√";
             this.ToolStripMenuItem_major_Add.Click += new System.EventHandler(this.ToolStripMenuItem_major_Add_Click);
             // 
             // ToolStripMenuItem_major_Del
             // 
             this.ToolStripMenuItem_major_Del.Name = "ToolStripMenuItem_major_Del";
             this.ToolStripMenuItem_major_Del.Size = new System.Drawing.Size(156, 22);
-            this.ToolStripMenuItem_major_Del.Text = "删除专业信息";
+            this.ToolStripMenuItem_major_Del.Text = "删除专业信息√";
             this.ToolStripMenuItem_major_Del.Click += new System.EventHandler(this.ToolStripMenuItem_major_Del_Click);
             // 
             // ToolStripMenuItem_major_Update

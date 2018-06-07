@@ -130,7 +130,7 @@ namespace SIMS
             {
                 new SqlParameter("@ID",Convert.ToInt32(ID))
             };
-            SQLHelp.ExecuteProc("proc_department_del", paras);
+            SQLHelp.ExecuteProc("proc_major_del", paras);
         }
         /// <summary>
         /// 添加学院信息

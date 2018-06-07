@@ -53,8 +53,8 @@ namespace SIMS
             }
             else
             {
-                String CommandTex = "select ID from t_department where Name  = '" + comboBox_depart.Text.Trim() + "'";
-                ArrayList arr = SQLHelp.ExecuteReArrList(CommandTex);
+                String CommandText = "select ID from t_department where Name  = '" + comboBox_depart.Text.Trim() + "'";
+                ArrayList arr = SQLHelp.ExecuteReArrList(CommandText);
                 if (arr.Count <= 0)
                 {
                     if (MessageBox.Show("学院信息不存在是否添加此班级？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -65,13 +65,13 @@ namespace SIMS
                         dep_insert.ShowDialog();
                         this.Visible = true;
                     }
-                    else
+                }
+                else
+                {
+                    switch (Oper_Flag)
                     {
-                        switch (Oper_Flag)
-                        {
-                            case Constants.INSERT: Insert(); break;
-                            case Constants.UPDATE: Update(); break;
-                        }
+                        case Constants.INSERT: Insert(); break;
+                        case Constants.UPDATE: Update(); break;
                     }
                 }
             }
@@ -133,9 +133,9 @@ namespace SIMS
         {
             SqlParameter[] paras = 
             {
-                new SqlParameter("@UNo",Convert.ToInt32(ID))
+                new SqlParameter("@ID",Convert.ToInt32(ID))
             };
-            SQLHelp.ExecuteProc("proc_student_del", paras);
+            SQLHelp.ExecuteProc("proc_major_del", paras);
         }
         /// <summary>
         /// 取消按钮事件
@@ -149,7 +149,7 @@ namespace SIMS
         /// </summary>
         private void Init_Update()
         {
-            String CommandText = "select * from t_major where UNo = " + ID;
+            String CommandText = "select * from t_major where UNo = " + textBox_ID.Text.Trim();
             ArrayList arr = SQLHelp.ExecuteReArrList(CommandText);
             textBox_ID.Text = arr[0].ToString();
             textBox_ID.ReadOnly = true;

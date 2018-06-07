@@ -78,6 +78,7 @@ create table t_student
 )
 GO
 --==================学院信息视图=====================
+create view vi_department_info(编号,名称,院长,备注)as 
 select d.ID,d.Name,d.Direc,d.Note
 from t_department as d
 GO

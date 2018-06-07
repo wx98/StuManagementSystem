@@ -49,6 +49,7 @@ namespace SIMS
             SI.Oper_Flag = Constants.INSERT;
             //显示学生信息模块
             SI.ShowDialog();
+            this.ToolStripMenuItem_Stu_browse_Click(sender, null);
         }
         ///<summary>
         ///删除学生信息按钮事件 
@@ -58,6 +59,7 @@ namespace SIMS
             if (MessageBox.Show("确认删除？","删除信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Student.Delete(GetId());
+                this.ToolStripMenuItem_Stu_browse_Click(sender, null);
             }
         }
         ///<summary>
@@ -69,6 +71,7 @@ namespace SIMS
             SI.ID = GetId();
             SI.Oper_Flag = Constants.UPDATE;
             SI.ShowDialog();
+            this.ToolStripMenuItem_Stu_browse_Click(sender, null);
         }
         ///<summary>
         ///浏览学生信息按钮事件
@@ -95,6 +98,7 @@ namespace SIMS
             m.Oper_Flag = Constants.INSERT;
             //显示专业信息模块
             m.ShowDialog();
+            this.ToolStripMenuItem_major_browse_Click(sender, null);
         }
         /// <summary>
         /// 删除专业信息按钮事件
@@ -103,7 +107,8 @@ namespace SIMS
         {
             if (MessageBox.Show("确认删除？", "删除信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                Student.Delete(GetId());
+                major.Delete(GetId());
+                this.ToolStripMenuItem_major_browse_Click(sender, null);
             }
         }
         /// <summary>
@@ -117,6 +122,7 @@ namespace SIMS
             m.Oper_Flag = Constants.UPDATE;
             //显示班级信息模块
             m.ShowDialog();
+            this.ToolStripMenuItem_major_browse_Click(sender, null);
         }
         /// <summary>
         /// 浏览专业信息按钮事件
@@ -143,6 +149,7 @@ namespace SIMS
             dt.Oper_Flag = Constants.INSERT;
             //显示学院信息模块
             dt.ShowDialog();
+            this.ToolStripMenuItem_depart_browse_Click(sender, null);
         }
         ///<summary>
         /// 删除学院信息按钮事件
@@ -152,6 +159,7 @@ namespace SIMS
             if (MessageBox.Show("确认删除？ ", "删除信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Class.Delete(GetId());
+                this.ToolStripMenuItem_depart_browse_Click(sender, null);
             }
         }
         /// <summary>
@@ -167,6 +175,7 @@ namespace SIMS
             dt.ID = GetId();
             //显示学院信息的模块
             dt.ShowDialog();
+            this.ToolStripMenuItem_depart_browse_Click(sender, null);
         }
         /// <summary>
         /// 浏览学院信息按钮事件
@@ -193,6 +202,7 @@ namespace SIMS
             c.Oper_Flag = Constants.INSERT;
             //显示班级信息模块
             c.ShowDialog();
+            this.ToolStripMenuItem_class_browse_Click(sender, null);
         }
         /// <summary>
         /// 删除班级信息按钮事件
@@ -202,6 +212,7 @@ namespace SIMS
             if (MessageBox.Show("确认删除？ ", "删除信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Class.Delete(GetId());
+                this.ToolStripMenuItem_class_browse_Click(sender, null);
             }
         }
         /// <summary>
@@ -217,6 +228,7 @@ namespace SIMS
             c.ID = GetId();
             //显示班级信息模块
             c.ShowDialog();
+            this.ToolStripMenuItem_class_browse_Click(sender, null);
         }
         /// <summary>
         /// 浏览班级按钮事件
@@ -377,7 +389,7 @@ namespace SIMS
             x += value.Width;
             //添加查询按钮Button
             Button Search = new Button();
-            Search.Location = new Point(x + 30, y - 5);
+            Search.Location = new Point(x + 250, y -5);
             Search.Text = "查询";
             //为查询按钮添加单击事件
             Search.Click += new EventHandler(Search_Click);
