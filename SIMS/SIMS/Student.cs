@@ -39,9 +39,6 @@ namespace SIMS
                 Init_Update();
             }   
         }
-        /// <summary>
-        /// 确定按钮事件
-        /// </summary>
         private void button_OK_Click(object sender, EventArgs e)
         {
             if (textBox_UNo.Text.Trim() == ""
