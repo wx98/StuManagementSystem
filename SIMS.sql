@@ -24,6 +24,7 @@ create table t_admin
 	ID		int identity,
 	UName	varchar(10) null,
 	Pass	varchar(20) null,
+	Flag    bit default 1,
 	constraint pk_admin primary key (ID)
 )
 GO
@@ -34,6 +35,7 @@ create table t_department
 	Name Varchar(30) not null,
 	Direc varchar(10) not null,
 	Note varchar(100) ,
+	Flag    bit default 1,
 	constraint pk_department primary key (ID)
 )
 GO
@@ -44,6 +46,7 @@ create table t_major
 	Name varchar(20) not null,
 	depart int not null,
 	Note varchar(100),
+	Flag    bit default 1,
 	constraint pk_major primary key(ID),
 	constraint fk_major_depart foreign key (depart) references t_department(ID)
 )
@@ -55,6 +58,7 @@ create table t_class
 	Name varchar(20) not null,
 	major int not null,
 	Couns varchar(20) not null,
+	Flag    bit default 1,
 	constraint pk_class primary key(ID),
 	constraint fk_class_major foreign key (major) references t_major(ID)
 )
@@ -73,6 +77,7 @@ create table t_student
 	IYear	varchar (10)	not null,
 	class	int				not null,
 	Note	varchar (100),
+	Flag    bit default 1,
 	constraint pk_student primary key (UNo),
 	constraint fk_stu_class foreign key (class)  references t_class (ID)
 )
@@ -80,25 +85,26 @@ GO
 --==================学院信息视图=====================
 create view vi_department_info(编号,名称,院长,备注)as 
 select d.ID,d.Name,d.Direc,d.Note
-from t_department as d
+from t_department as d where Flag not in(0)
 GO
 --==================专业信息视图=====================
 create view vi_major_info(编号,名称,院长,备注)as 
 select m.ID,m.Name,d.Name,m.Note 
 from t_major as m, t_department as d 
-where  m.depart =  d.ID
+where  m.depart =  d.ID and m.Flag not in (0) and d.Flag not in (0)
 GO
 --==================班级信息视图=====================
 create view vi_class_info(编号,班级名称,辅导员,专业名称,学院名称) as
 select c.ID,c.Name,c.Couns,m.Name,d.Name
 from t_class as c,t_major as m,t_department as d 
-where c.major = m.ID and m.depart = d.ID
+where c.major = m.ID and m.depart = d.ID and m.Flag not in (0) and d.Flag not in (0)and c.Flag not in (0)
 GO
 --==================学生信息视图=====================
 create view vi_Stu_info(学号,姓名,性别,出生日期,身份证号,籍贯,地址,电话,入学时间,班级,专业,学院,备注) as
 select s.UNo,s.Name,s.Sex,s.Birth,s.ID,s.Origin,s.Addr,s.Tel,s.IYear,c.Name,m.Name,d.Name,s.Note
 From t_student as s,t_class as c,t_major as m,t_department as d
-where s.class = c.ID AND c.major = m.ID AND depart  =d.ID
+where s.class = c.ID AND c.major = m.ID AND depart  =d.ID 
+and m.Flag not in (0) and d.Flag not in (0)and c.Flag not in (0) and s.Flag not in (0)
 go
 --+++++++++++++++++添加学院信息存储过程+++++++++++++++++++++
 create proc proc_department_insert
@@ -106,10 +112,11 @@ create proc proc_department_insert
 	@ID	     int,
 	@Name	 varchar(30),
 	@Direc	 varchar(10),
-	@Note	 varchar(100)
+	@Note	 varchar(100),
+	@Flag    bit
 )
 as
-insert into t_department values (@ID,@Name,@Direc,@Note)
+insert into t_department values (@ID,@Name,@Direc,@Note,1)
 go
 --+++++++++++++++删除学院信息存储过程++++++++++++++++++++++++
 create proc proc_department_del
@@ -144,7 +151,7 @@ create proc proc_department_update
 	@Note	 varchar(100)
 )
 as
-update t_department set Name = @Name,Direc = @Direc,Note = @Note where ID  = @ID
+update t_department set Name = @Name,Direc = @Direc,Note = @Note ,@Flag = 1 where ID  = @ID
 go
 --+++++++++++++++添加专业信息存储过程++++++++++++++++++++++++
 create proc proc_major_insert
@@ -155,7 +162,7 @@ create proc proc_major_insert
 	@Note	 varchar(100)
 )
 as
-insert into t_major values (@ID,@Name,@depart,@Note)
+insert into t_major values (@ID,@Name,@depart,@Note,1)
 go
 --+++++++++++++++删除专业信息存储过程++++++++++++++++++++++++
 create proc proc_major_del
@@ -183,7 +190,7 @@ create proc proc_major_update
 	@Note	 varchar(100)
 )
 as
-update t_major set Name = @Name,depart = @depart,Note = @Note where ID  = @ID
+update t_major set Name = @Name,depart = @depart,Note = @Note ,Flag = 1 where ID  = @ID
 go
 --+++++++++++++++添加班级信息存储过程++++++++++++++++++++++++
 create proc proc_class_insert
@@ -191,10 +198,10 @@ create proc proc_class_insert
 	@ID		int,
 	@Name	varchar(20),
 	@major	int,
-	@Couns	varchar(20)
+	@Couns	varchar(20),
 )
 as 
-insert into t_class values (@ID,@Name,@major,@Couns)
+insert into t_class values (@ID,@Name,@major,@Couns,1)
 go
 --+++++++++++++++删除班级信息存储过程++++++++++++++++++++++++
 create proc proc_class_del
@@ -221,7 +228,7 @@ create proc proc_class_update
 	@Couns	varchar(20)
 )
 as
-update t_class set Name = @Name,major = @major,Couns = @Couns where ID  = @ID
+update t_class set Name = @Name,major = @major,Couns = @Couns ,Flag = 1 where ID  = @ID
 go
 --+++++++++++++++添加学生信息存储过程++++++++++++++++++++++++
 create proc proc_student_insert
@@ -239,7 +246,7 @@ create proc proc_student_insert
 	@Note	varchar (100)
 )
 as
-insert into t_student values (@UNo,@Name,@Sex,@Birth,@ID,@Origin,@Addr,@Tel,@IYear,@class,@Note)
+insert into t_student values (@UNo,@Name,@Sex,@Birth,@ID,@Origin,@Addr,@Tel,@IYear,@class,@Note, 1)
 go
 --+++++++++++++++删除学生信息存储过程++++++++++++++++++++++++
 create proc proc_student_del
@@ -272,7 +279,7 @@ create proc proc_student_update
 	@Note	varchar (100)
 )
 as
-update t_student set Name = @Name,Sex =@Sex,Birth = @Birth,ID = @ID,Origin = @Origin,Addr = @Addr,Tel = @Tel,IYear = @IYear,class = @class,Note = @Note where UNo = @UNo
+update t_student set Name = @Name,Sex =@Sex,Birth = @Birth,ID = @ID,Origin = @Origin,Addr = @Addr,Tel = @Tel,IYear = @IYear,class = @class,Note = @Note , Flag = 1 where UNo = @UNo
 go
 --+++++++++++++++添加管理员信息存储过程++++++++++++++++++++++
 create proc proc_admin_insert
